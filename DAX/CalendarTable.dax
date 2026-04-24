@@ -13,3 +13,4 @@ ADDCOLUMNS (
     "ДеньТижня Номер", WEEKDAY([Date], 2),
     "ДеньТижня Назва", FORMAT([Date], "dddd", "uk-UA")
 )
+
