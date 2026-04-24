@@ -1,0 +1,15 @@
+Calendar =
+VAR MinYear = YEAR(MIN('weather_df'[Дата]))
+VAR MaxYear = YEAR(MAX('weather_df'[Дата]))
+RETURN
+ADDCOLUMNS (
+    CALENDAR(DATE(MinYear, 1, 1), DATE(MaxYear, 12, 31)),
+    "Рік", YEAR([Date]),
+    "Місяць Номер", MONTH([Date]),
+    "Місяць Назва", FORMAT([Date], "MMMM", "uk-UA"),
+    "Квартал", "Q" & FORMAT([Date], "Q"),
+    "День", DAY([Date]),
+    "Тиждень Номер", WEEKNUM([Date], 2),
+    "ДеньТижня Номер", WEEKDAY([Date], 2),
+    "ДеньТижня Назва", FORMAT([Date], "dddd", "uk-UA")
+)
